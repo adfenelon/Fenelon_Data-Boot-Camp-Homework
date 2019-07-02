@@ -24,53 +24,45 @@ Blank = "------------------------------"
 electioncsvpath = os.path.join('Resources','election_data.csv')
 
 with open(electioncsvpath, "r") as datafile:
-    election_reader = csv.reader(datafile, delimiter=',')
+    election_reader = csv.reader(datafile)
     header = next(election_reader)
-
+    election_data = csv.reader(datafile, delimiter=',')
+   
     Candidates = []
-
-#* The total number of votes cast
     for row in election_reader:
-        Candidates.apend(row[2])
+        Candidates.append(row[2])
+        total_votes = len(Candidates)
         
-    Total_Votes = len(Candidates)
+    Candidates_unique=list(set(Candidates))
+    candidate_name = {}
+    percentage_votes ={}
+    
+    for name in Candidates_unique:
+            count=Candidates.count(name)
+            candidate_name[name]=count
+            percentage_votes[name] = round((candidate_name[name]/total_votes)*100)
 
-print("Total Votes:" + Str(Voter_ID_Tally))
+    print(Summary)
+    print(Blank)
+    print("Total votes:"+ " " + str(total_votes))
+    print(Blank)
+    print("List of candidates:"+ " " + str(Candidates_unique))
+    print("Votes per candidate:" + " " + str(candidate_name))
+    print("Percentage vote per candidate:"+" " + str(percentage_votes) + )
+    print(Blank)
+    #print("Winner: ")
+    print(Blank)
 
-print(Blank)
-
-print(Summary)
-
-print(blank)
-
-#* A complete list of candidates who received votes
-candidates_unique = list(set(Candidates)
-
-
-#* The percentage of votes each candidate won
-percent = round(int(row[3]) / int(row[5]), 2)
-        review_percent.append(percent)
-#* The total number of votes each candidate won
-#* The winner of the election based on popular vote.
-
-print(Summary)
-print(Blank)
-print(":" + Str(Voter_ID_Tally))
-print(Blank)
-Print(":" + Str() +)
-Print(":" + Str() +)
-Print(":" + Str() +)
-Print(":" + Str() +)
-Print(Blank)
-Print("Winner: ")
-Print(Blank)
+Election_Results = {'khan:': [percentage vote
 
 
-polloutput_file = os.path.join("election_summary.csv")
 
-with open(polloutput_file, "w", newline="") as datafile:
-    writer = csv.writer(datafile)
 
+#polloutput_file = os.path.join("election_summary.csv")
+#
+#with open(polloutput_file, "w", newline="") as datafile:
+#    writer = csv.writer(datafile)
+#
 
 
 
