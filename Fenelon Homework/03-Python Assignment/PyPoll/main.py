@@ -19,7 +19,7 @@ import csv
 
 Winning_votes = 0
 total_votes = 0
-Summary = "Election Results"
+Results = "Election Summary"
 Blank = "------------------------------"
 
 electioncsvpath = os.path.join('Resources','election_data.csv')
@@ -42,51 +42,44 @@ with open(electioncsvpath, "r") as datafile:
         count=Candidates.count(name)
         candidate_name[name]=count
         percentage_votes[name] = round((candidate_name[name]/total_votes)*100,2)
-    print(candidate_name)
     
-    for n in candidate_name:
-        if(candidate_name[n] > Winning_votes):
-            Winning_votes = candidate_name[n]
-            Winner = n
-   
-    print(Summary)
-    print(Blank)
-    print("Total votes:" + " " + str(total_votes))
-    print(Blank)
-    print("List of candidates:"+ " " + str(Candidates_unique))
-    print("Votes per candidate:" + " " + str(candidate_name))
-    print("Percentage vote per candidate:" + " " + str(percentage_votes))
-    print(Blank)
-    print(f'Winner: {Winner}')
-    print(Blank)
-   
-    print(f'{Candidates_unique[1]}: {percentage_votes["Khan"]}% {candidate_name["Khan"]}')
-#    print(f'{Candidates_unique[0]}: {percentage_votes["O\'Tooley"]}% {candidate_name["O\'Tooley"]}')
-    print(f'{Candidates_unique[2]}: {percentage_votes["Li"]}% {candidate_name["Li"]}')
-    print(f'{Candidates_unique[3]}: {percentage_votes["Correy"]}% {candidate_name["Correy"]}')
+    for z in candidate_name:
+        if(candidate_name[z] > Winning_votes):
+            Winning_votes = candidate_name[z]
+            Winner = z
 
+Tooley_P = percentage_votes["O'Tooley"]
+Tooley_Total = candidate_name["O'Tooley"]
 
-for y in Candidates_unique:
-    for z in percentage_votes:
-        for t in candidate_name:
-            print(y,z,t)
+#print(Results)
+#print(Blank)
+#print("Total votes:" + " " + str(total_votes))
+#print(Blank)
+#print(f'{Candidates_unique[1]}: {percentage_votes["Khan"]}% ({candidate_name["Khan"]})')
+#print(f'{Candidates_unique[3]}: {Tooley_P}% ({Tooley_Total})')
+#print(f'{Candidates_unique[0]}: {percentage_votes["Li"]}% ({candidate_name["Li"]})')
+#print(f'{Candidates_unique[2]}: {percentage_votes["Correy"]}% ({candidate_name["Correy"]})')
+#print(Blank)
+#print(f'Winner: {Winner}')
+#print(Blank)
 
+Summary = (f'{Results}\n'
+           f'{Blank}\n'
+           f'{"Total votes:" + " " + str(total_votes)}\n'
+           f'{Blank}\n'
+           f'{Candidates_unique[1]}: {percentage_votes["Khan"]}% ({candidate_name["Khan"]})\n'
+           f'{Candidates_unique[3]}: {Tooley_P}% ({Tooley_Total})\n'
+           f'{Candidates_unique[0]}: {percentage_votes["Li"]}% ({candidate_name["Li"]})\n'
+           f'{Candidates_unique[2]}: {percentage_votes["Correy"]}% ({candidate_name["Correy"]})\n'
+           f'{Blank}\n'
+           f'Winner: {Winner}\n'
+           f'{Blank}\n')
+print(Summary)
 
-
-
-
-
-#polloutput_file = os.path.join("election_summary.txt")
-#
-#with open(polloutput_file, "w", newline="") as textfile:
-#    writer = textfile.write()
-#
-#
-#
-#  
-#for soda in candidate_name.keys():
-#    print(soda)
-    
+polloutput_file = os.path.join("election_summary.txt")
+with open(polloutput_file, "w", newline="") as textfile:
+    writer = textfile.write(Summary)
+ 
 
 #Expected Output :#* As an example, your analysis should look similar to the one below:
 
