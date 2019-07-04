@@ -48,44 +48,40 @@ with open(electioncsvpath, "r") as datafile:
             Winning_votes = candidate_name[z]
             Winner = z
 
-Tooley_P = percentage_votes["O'Tooley"]
-Tooley_Total = candidate_name["O'Tooley"]
+polls = []
 
-#print(Results)
-#print(Blank)
-#print("Total votes:" + " " + str(total_votes))
-#print(Blank)
-#print(f'{Candidates_unique[1]}: {percentage_votes["Khan"]}% ({candidate_name["Khan"]})')
-#print(f'{Candidates_unique[3]}: {Tooley_P}% ({Tooley_Total})')
-#print(f'{Candidates_unique[0]}: {percentage_votes["Li"]}% ({candidate_name["Li"]})')
-#print(f'{Candidates_unique[2]}: {percentage_votes["Correy"]}% ({candidate_name["Correy"]})')
-#print(Blank)
-#print(f'Winner: {Winner}')
-#print(Blank)
+for i in Candidates_unique:
+    polls.append(f'{i}: {percentage_votes[i]}% ({candidate_name[i]})')
+print(*polls, sep="\n")
 
-Summary = (f'{Results}\n'
+
+Summary_Total = (f'{Results}\n'
            f'{Blank}\n'
-           f'{"Total votes:" + " " + str(total_votes)}\n'
-           f'{Blank}\n'
-           f'{Candidates_unique[1]}: {percentage_votes["Khan"]}% ({candidate_name["Khan"]})\n'
-           f'{Candidates_unique[3]}: {Tooley_P}% ({Tooley_Total})\n'
-           f'{Candidates_unique[0]}: {percentage_votes["Li"]}% ({candidate_name["Li"]})\n'
-           f'{Candidates_unique[2]}: {percentage_votes["Correy"]}% ({candidate_name["Correy"]})\n'
-           f'{Blank}\n'
-           f'Winner: {Winner}\n'
+           f'Total Votes: {total_votes}\n'
            f'{Blank}\n')
-print(Summary)
+
+Summary_Winner = (f'{Blank}\n'
+           f'Winner: {Winner}\n'
+           f'{Blank}')
+
 
 polloutput_file = os.path.join("election_summary.txt")
-with open(polloutput_file, "w", newline="") as textfile:
-    writer = textfile.write(Summary)
- 
 
+with open(polloutput_file, "w", newline="") as textfile:
+    textfile.write(Summary_Total)
+    for k in polls:
+        textfile.writelines("%s\n" % k)
+    textfile.write(Summary_Winner)
+    textfile.close()
+
+    
+    
 #Expected Output :#* As an example, your analysis should look similar to the one below:
 
     #  ```text
     #  Election Results
     #  -------------------------
+
     #  Total Votes: 3521001
     #  -------------------------
     #  Khan: 63.000% (2218231)
