@@ -52,8 +52,6 @@ polls = []
 
 for i in Candidates_unique:
     polls.append(f'{i}: {percentage_votes[i]}% ({candidate_name[i]})')
-print(*polls, sep="\n")
-
 
 Summary_Total = (f'{Results}\n'
            f'{Blank}\n'
@@ -64,6 +62,10 @@ Summary_Winner = (f'{Blank}\n'
            f'Winner: {Winner}\n'
            f'{Blank}')
 
+
+print(Summary_Total)
+print(*polls, sep="\n")
+print(Summary_Winner)
 
 polloutput_file = os.path.join("election_summary.txt")
 
