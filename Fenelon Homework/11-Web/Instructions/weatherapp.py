@@ -36,7 +36,7 @@ def Cloudiness():
 
 @app.route("/Wind_Speed")
 def Wind_Speed():   
-    return render_template('windspeed.html')
+    return render_template('wind_speed.html')
 
 @app.route("/Comparison")
 def Comparison():  
