@@ -1,40 +1,106 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-us">
+  <head>
 
-<head>
     <meta charset="UTF-8">
-    <title>Web Visualization Dashboard</title>
-<!-- Bring in our bootstrap stylesheet -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
--->
+    <title>Bootstrap Visualization Dashboard</title>
 
-<!-- Add a link to the external stylesheet -->
-    <link rel="stylesheet", href = "style.css">
+    <!-- Boostrap Stylesheet -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" media="screen">
 
+    <!-- Our own CSS stylesheet -->
+    <link rel="stylesheet" href="assets/css/styles.css" media="screen">
 
-</head>
-<h2>Weather Visualization Dashboard: Weather Correlation Summary  </h2>
+  </head>
 
-<body>
-  <img src="Resources/assets/images/Fig1.png" alt="City Latitude vs. Max temp" style="width:500px;height:500px;"></image> 
+  <body>
+    <!-- Start of navbar -->
+    <nav class="navbar navbar-default">
+      <div class="container-fluid navbar-custom">
 
-  <p>As expected, the weather becomes significantly warmer as one approaches the equator (0
-    Deg, Latitude).  More interstingly, however, is the fact that the southern hemisphere tends to 
-    be warmer this time of year than the northern hemisphere.  This may be due to the tilt of the 
-    earth at the time of the year this data was gathered.
-</p> 
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="row">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle Navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="col-xs-9 phone-nav">
+              <a class="navbar-brand" href="home.html" id="logo">Discovery</a>
+            </div>
+          </div>
 
-<h3>Visualizations:</h3>
-  <img src="Resources/assets/images/Fig2.png" alt="City Latitude vs. Humidity"   style="width:100px;height:100px;"></image> <br>
-  <img src="Resources/assets/images/Fig3.png" alt="City Latitude vs. Cloudiness" style="width:100px;height:100px;"></image> <br>
-  <img src="Resources/assets/images/Fig4.png" alt="City Latitude vs. Wind Speed" style="width:100px;height:100px;"></image> <br>
-  <img src="https://openweathermap.org/themes/openweathermap/assets/img/map_temp_owm.jpg" alt="World Weather Map"   style="width:75px;height:100px;"></image> 
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right navbar-right-custom">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Plots <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                 <li><a href="Weather Analysis/maxtemp.html">Max Temperature</a></li>
+                  <li><a href="Weather Analysis/humidity.html">Humidity</a></li>
+                  <li><a href="Weather Analysis/cloudiness.html">Cloudiness</a></li>
+                  <li><a href="Weather Analysis/wind_speed.html">Wind Speed</a></li>
+                </ul>
+              </li>
+              <li><a href="compare.html">Comparison</a></li>
+              <li><a href="dataset.html">Data</a></li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div>
+      </div><!-- /.container-fluid -->
+    </nav>
+    <!-- End of navbar -->
 
+    <!-- Start of container -->
+    <div class="container">
+      <article class="description-content row">
+        <div class="col-xs-12">
+          <h1 class="description-header">Comparison: Latitude vs X</h1>
+          <hr class="description-hr"/>
+          <p class="description-text">Click any plot to get an in-depth analysis.</p>
+        </div>
+        <div class="col-md-6">
+          <h2 class="comparison-header">vs. Max Temperature</h2>
+          <a href="Weather Analysis/temp.html"><img src="assets/images/Fig1.png" alt="Latitude vs. Max Temperature" class="comparison-image img-responsive"></a>
+          <hr class="visible-xs visible-sm">
+        </div>
+        <div class="col-md-6">
+          <h2 class="comparison-header">vs. Humidity</h2>
+          <a href="Weather Analysis/humidity.html"><img src="assets/images/Fig2.png" alt="Latitude vs. Humidity" class="comparison-image img-responsive"></a>
+          <hr class="visible-xs visible-sm">
+        </div>
+        <div class="col-md-6">
+          <h2 class="comparison-header">vs. Cloudiness</h2>
+          <a href="Weather Analysis/cloudiness.html"><img src="assets/images/Fig3.png" alt="Latitude vs. Cloudiness" class="comparison-image img-responsive"></a>
+          <hr class="visible-xs visible-sm">
+        </div>
+        <div class="col-md-6">
+          <h2 class="comparison-header">vs. Wind Speed</h2>
+          <a href="Weather Analysis/wind.html"><img src="assets/images/Fig4.png" alt="Latitude vs. Wind Speed" class="comparison-image img-responsive"></a>
+        </div>
+      </article>
+    </div>
+    <!-- End of container  -->
 
-</body>
+    <!-- Start of footer -->
+    <footer class="footer navbar-fixed-bottom">
+      <div class="two-toned-footer-color"></div>
+      <p class="text-muted text-muted-footer text-center">
+        &copy; Amoney Media Analytics 2019
+      </p>
+    </footer>
+    <!-- End of footer -->
+
+    <!-- jQuery CDN -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <!-- Bootstrap CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  </body>
+
 </html>
-
